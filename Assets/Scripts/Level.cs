@@ -18,6 +18,12 @@ public class Level : MonoBehaviour {
         FindObjectOfType<GameSession>().ResetGame();
     }
 
+    public void LoadGame2()
+    {
+        SceneManager.LoadScene("Game2");
+        FindObjectOfType<GameSession>().ResetGame();
+    }
+
     public void LoadGameOver()
     {
         StartCoroutine(WaitAndLoad());
