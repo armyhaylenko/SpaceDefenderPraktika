@@ -27,6 +27,8 @@ public class Player : MonoBehaviour {
     float yMin;
     float yMax;
 
+    bool passedLvl2 = false;
+
     // Use this for initialization
     void Start () {
         SetUpMoveBoundaries();
@@ -36,11 +38,16 @@ public class Player : MonoBehaviour {
     void Update () {
         Move();
         Fire();
-        if(FindObjectOfType<GameSession>().GetScore() > 1000)
+        if(FindObjectOfType<GameSession>().GetScore() > 1000 && !passedLvl2)
         {
+            passedLvl2 = true;
             ProceedToLvl2();
         }
-	}
+        if (FindObjectOfType<GameSession>().GetScore() > 3000 && passedLvl2)
+        {
+            ProceedToLvl3();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,6 +69,11 @@ public class Player : MonoBehaviour {
     private void ProceedToLvl2()
     {
         FindObjectOfType<Level>().LoadGame2();
+    }
+
+    private void ProceedToLvl3()
+    {
+        FindObjectOfType<Level>().LoadGame3();
     }
 
     private void Die()
