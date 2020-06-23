@@ -12,23 +12,41 @@ public class Level : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void LoadCross()
+    {
+        SceneManager.LoadScene(2);
+        FindObjectOfType<GameSession>().ResetGame();
+    }
+
+
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(1);
         FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void LoadGame2()
     {
-        new WaitForSeconds(3);
-        SceneManager.LoadScene("Game2");
+        SceneManager.LoadScene(3);
         FindObjectOfType<GameSession>().ResetGame();
     }
     
     public void LoadGame3()
     {
         new WaitForSeconds(3);
-        SceneManager.LoadScene("Game3");
+        SceneManager.LoadScene(4);
+        FindObjectOfType<GameSession>().ResetGame();
+    }
+
+    public void LoadGame4()
+    {
+        SceneManager.LoadScene(5);
+        FindObjectOfType<GameSession>().ResetGame();
+    }
+
+    public void LoadGame5()
+    {
+        SceneManager.LoadScene(6);
         FindObjectOfType<GameSession>().ResetGame();
     }
 

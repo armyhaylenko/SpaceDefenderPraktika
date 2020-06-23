@@ -399,6 +399,11 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82563006837546184, guid: 7a46ab0a9fe3c154682b9a88ddcee96f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a46ab0a9fe3c154682b9a88ddcee96f, type: 3}
 --- !u!1001 &976156838
@@ -751,10 +756,15 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23205523723860470, guid: b71dc6ee7dafb9947aaeb1ad303ffe56,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4b7cbd5332cd4744a62f69d2d52aa62, type: 2}
     - target: {fileID: 114851779423653712, guid: b71dc6ee7dafb9947aaeb1ad303ffe56,
         type: 3}
       propertyPath: backgroundScrollSpeed
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71dc6ee7dafb9947aaeb1ad303ffe56, type: 3}

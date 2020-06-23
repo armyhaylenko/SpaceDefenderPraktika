@@ -28,25 +28,38 @@ public class Player : MonoBehaviour {
     float yMax;
 
     bool passedLvl2 = false;
+    bool passedLvl3 = false;
+
+    int score = 0;
 
     // Use this for initialization
     void Start () {
         SetUpMoveBoundaries();
-	}
+
+    }
  
     // Update is called once per frame
     void Update () {
         Move();
         Fire();
-        if(FindObjectOfType<GameSession>().GetScore() > 1000 && !passedLvl2)
+        if (FindObjectOfType<GameSession>().GetScore() > 5460 && !passedLvl2)
         {
             passedLvl2 = true;
+            score += 5460;
             ProceedToLvl2();
         }
-        if (FindObjectOfType<GameSession>().GetScore() > 3000 && passedLvl2)
+        else if (FindObjectOfType<GameSession>().GetScore() > 6450 && !passedLvl3 && passedLvl2)
         {
+            passedLvl3 = true;
+            score += 3000;
             ProceedToLvl3();
         }
+        else if (passedLvl2 && passedLvl3)
+        {
+            ProceedToLvl4();
+        }
+        else ProceedToLvl5();
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -66,14 +79,27 @@ public class Player : MonoBehaviour {
         }
     }
 
+
     private void ProceedToLvl2()
     {
+        FindObjectOfType<Level>().LoadCross();
+        new WaitForSeconds(4);
         FindObjectOfType<Level>().LoadGame2();
     }
 
     private void ProceedToLvl3()
     {
         FindObjectOfType<Level>().LoadGame3();
+    }
+
+    private void ProceedToLvl4()
+    {
+        FindObjectOfType<Level>().LoadGame4();
+    }
+
+    private void ProceedToLvl5()
+    {
+        FindObjectOfType<Level>().LoadGame5();
     }
 
     private void Die()
