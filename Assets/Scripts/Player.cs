@@ -36,6 +36,10 @@ public class Player : MonoBehaviour {
     void Update () {
         Move();
         Fire();
+        if(FindObjectOfType<GameSession>().GetScore() > 1000)
+        {
+            ProceedToLvl2();
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +57,11 @@ public class Player : MonoBehaviour {
         {
             Die();
         }
+    }
+
+    private void ProceedToLvl2()
+    {
+        FindObjectOfType<Level>().LoadGame2();
     }
 
     private void Die()
